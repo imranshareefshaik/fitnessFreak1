@@ -5,8 +5,13 @@ import logo from '@/assets/logo.png'
 import Input from '@mui/joy/Input';
 import Select from '@mui/joy/Select';
 import Option from '@mui/joy/Option';
+import { AiFillDelete, AiOutlineClose } from 'react-icons/ai'
 
-const AuthPopup = () => {
+
+interface AuthPopupProps {
+    setShowpopup: React.Dispatch<React.SetStateAction<boolean>>;
+}
+const AuthPopup = ({ setShowpopup }: AuthPopupProps) => {
 
     const [showSignup, setShowSignup] = React.useState<boolean>(false)
 
@@ -14,6 +19,13 @@ const AuthPopup = () => {
     const handleSignup = () => {}
   return (
     <div className='popup'>
+        <button className='close'
+                onClick={() => {
+                     setShowpopup(false)
+                }}
+            >
+                <AiOutlineClose />
+        </button>
         {
             showSignup ? (
                 <div className='authform'>
